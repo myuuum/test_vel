@@ -9,20 +9,15 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(Post $post)
-    {
-        return view('index')->with(['posts' => $post->getPaginate()]);
+    public function index(Post $post){
+        return view('index')->with(['posts' => $post->getPaginateByLimit()]);
     }
-
+    
     public function show(Post $post)
     {
         return view('show')->with(['post' => $post]);
     }
 
-    public function create()
-    {
-        return view('create');
-    }
 
     public function store(Post $post, PostRequest $request) // 引数をRequest->PostRequestにする
     {
@@ -47,4 +42,9 @@ class PostController extends Controller
         $post->delete();
         return redirect('/');
     }
+    
+    public function create(Category $category){
+        return view('create')->with(['categories' => $category->get()]);;
+    }
+    
 }
