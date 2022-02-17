@@ -6,6 +6,10 @@
         <title>Posts</title>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Blog Name</h1>
+        <p class='edit'>[<a href="/posts/{{ $post->id }}/edit">edit</a>]</p>
         <link rel="stylesheet" href="/css/app.css">
     </head>
     <body>
@@ -15,6 +19,7 @@
             <p class='body'>{{ $post->body }}</p>
             <p class='updated_at'>{{ $post->updated_at }}</p>
         </div>
+        <div class="back"><a href="/">back</a></div>
         <div class="back">
             <a href="/">back</a>
         </div>
