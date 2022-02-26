@@ -1,4 +1,7 @@
 <!DOCTYPE HTML>
+@extends('layouts.app')　　　　　　　　　　　　　　　　　　
+
+@section('content')
 <html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -20,6 +23,7 @@
             <p class='body'>{{ $post->body }}</p>
             <a href="">{{ $post->category->name }}</a>
             <p class='updated_at'>{{ $post->updated_at }}</p>
+            <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
         </div>
         <div class="back"><a href="/">back</a></div>
         <script>
@@ -33,3 +37,4 @@
         </script>
     </body>
 </html>
+@endsection
